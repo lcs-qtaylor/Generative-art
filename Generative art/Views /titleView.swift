@@ -7,15 +7,33 @@
 
 import SwiftUI
 
+enum Coin: Int{
+    
+    case heads = 1
+    case tails = 2
 
+    static func flip() -> Coin {
+        
+        let decision = Bool.random()
+        
+        if decision == true {
+            
+            return .heads
+        }else {
+            
+            return .tails
+        }
+    }
+}
 struct titleView: View {
     
-    let flipOne = Int.random(in: 1...2)
+    let flipOne = Coin.flip()
     
+    let flipTwo = Int.random(in: 1...2)
     var body: some View {
         VStack {
             
-            if flipOne == 1 {
+            if flipOne == .heads {
                 ZStack{
                     triangleTopLeft()
                         .stroke(.black)
