@@ -7,9 +7,50 @@
 
 import SwiftUI
 
+
 struct titleView: View {
+    
+    let flipOne = Int.random(in: 1...2)
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            
+            if flipOne == 1 {
+                ZStack{
+                    triangleTopLeft()
+                        .stroke(.black)
+                        .fill(.clear)
+                        .aspectRatio(1.0, contentMode: .fit)
+                    
+                    
+                    triangleBottomRight()
+                        .stroke(.black)
+                        .fill(.clear)
+                        .aspectRatio(1.0, contentMode: .fit)
+                }
+            }else {
+                ZStack{
+                    
+                    triangleTopRight()
+                        .stroke(.black)
+                        .fill(.clear)
+                        .aspectRatio(1.0, contentMode: .fit)
+                    
+                    triangleBottomLeft()
+                        .stroke(.black)
+                        .fill(.clear)
+                        .aspectRatio(1.0, contentMode: .fit)
+                    
+                }
+            }
+            
+            
+            
+           
+            
+        }
+        .padding()
+  
     }
 }
 
