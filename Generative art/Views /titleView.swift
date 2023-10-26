@@ -29,7 +29,9 @@ struct titleView: View {
     
     let flipOne = Coin.flip()
     
-    let flipTwo = Int.random(in: 1...2)
+    let flipTwo = Coin.flip()
+    
+    let flipThree = Coin.flip()
     var body: some View {
         VStack {
             
@@ -45,8 +47,50 @@ struct titleView: View {
                         .stroke(.black)
                         .fill(.clear)
                         .aspectRatio(1.0, contentMode: .fit)
+                    
+                if flipTwo == .heads {
+                    
+                    triangleTopLeft()
+                        .stroke(.clear)
+                        .fill(.red)
+                        .aspectRatio(1.0, contentMode: .fit)
+                } else {
+                    triangleTopLeft()
+                        .stroke(.clear)
+                        .fill(.yellow)
+                        .aspectRatio(1.0, contentMode: .fit)
                 }
-            }else {
+                    if flipTwo == .heads {
+                        
+                        if flipThree == .heads {
+                            triangleBottomRight()
+                                .stroke(.clear)
+                                .fill(.yellow)
+                                .aspectRatio(1.0, contentMode: .fit)
+                        } else {
+                            
+                            triangleBottomRight()
+                                .stroke(.clear)
+                                .fill(.clear)
+                                .aspectRatio(1.0, contentMode: .fit)
+                        }
+                    } else {
+                        
+                        if flipThree == .heads {
+                            triangleBottomRight()
+                                .stroke(.clear)
+                                .fill(.red)
+                                .aspectRatio(1.0, contentMode: .fit)
+                        } else {
+                            
+                            triangleBottomRight()
+                                .stroke(.clear)
+                                .fill(.clear)
+                                .aspectRatio(1.0, contentMode: .fit)
+                        }
+                    }
+            }
+            } else {
                 ZStack{
                     
                     triangleTopRight()
@@ -59,16 +103,51 @@ struct titleView: View {
                         .fill(.clear)
                         .aspectRatio(1.0, contentMode: .fit)
                     
+                    if flipTwo == .heads {
+                        
+                        triangleTopRight()
+                            .stroke(.clear)
+                            .fill(.red)
+                            .aspectRatio(1.0, contentMode: .fit)
+                    } else {
+                        triangleTopRight()
+                            .stroke(.clear)
+                            .fill(.yellow)
+                            .aspectRatio(1.0, contentMode: .fit)
+                    }
+                    if flipTwo == .heads {
+                        
+                        if flipThree == .heads {
+                            triangleBottomLeft()
+                                .stroke(.clear)
+                                .fill(.yellow)
+                                .aspectRatio(1.0, contentMode: .fit)
+                        } else {
+                            
+                            triangleBottomLeft()
+                                .stroke(.clear)
+                                .fill(.clear)
+                                .aspectRatio(1.0, contentMode: .fit)
+                        }
+                    } else {
+                        
+                        if flipThree == .heads {
+                            triangleBottomLeft()
+                                .stroke(.clear)
+                                .fill(.red)
+                                .aspectRatio(1.0, contentMode: .fit)
+                        } else {
+                            
+                            triangleBottomLeft()
+                                .stroke(.clear)
+                                .fill(.clear)
+                                .aspectRatio(1.0, contentMode: .fit)
+                        }
+                    }
                 }
             }
-            
-            
-            
-           
-            
         }
-        .padding()
-  
+        
     }
 }
 

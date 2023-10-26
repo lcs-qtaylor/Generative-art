@@ -11,7 +11,7 @@ import SwiftUI
 struct Generative_artApp: App {
     var body: some Scene {
         WindowGroup {
-            titleView()
+            MosaicView()
         }
     }
 }
